@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpwuuv2wowxq3"
-path="res://.godot/imported/bloxx.png-a84571d48fee62ad7acf3b328bb2010e.ctex"
+path="res://.godot/imported/bloxx.png-e89ff3bf67b098d0adc47ef934a972ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/InteractableElements/packs/bloxx.png"
-dest_files=["res://.godot/imported/bloxx.png-a84571d48fee62ad7acf3b328bb2010e.ctex"]
+source_file="res://Assets/InteractableElements/Sprites/bloxx.png"
+dest_files=["res://.godot/imported/bloxx.png-e89ff3bf67b098d0adc47ef934a972ef.ctex"]
 
 [params]
 
