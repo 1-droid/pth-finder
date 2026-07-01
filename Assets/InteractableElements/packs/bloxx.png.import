@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csx6ex8anx2d2"
-path="res://.godot/imported/ground.png-a0b7d723b0a9441088775f1312eefdbd.ctex"
+uid="uid://cpwuuv2wowxq3"
+path="res://.godot/imported/bloxx.png-a84571d48fee62ad7acf3b328bb2010e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/InteractableElements/packs/ground.png"
-dest_files=["res://.godot/imported/ground.png-a0b7d723b0a9441088775f1312eefdbd.ctex"]
+source_file="res://Assets/InteractableElements/packs/bloxx.png"
+dest_files=["res://.godot/imported/bloxx.png-a84571d48fee62ad7acf3b328bb2010e.ctex"]
 
 [params]
 
