@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://klutbo10svly" path="res://Assets/Scripts/player_controller.gd" id="1_7dd06"]
 [ext_resource type="Script" uid="uid://dcapp3qgobpyy" path="res://Assets/Scripts/player_animator.gd" id="2_38rej"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q7ti0"]
+radius = 5.0822325
+height = 10.164465
+
 [sub_resource type="Animation" id="Animation_7dd06"]
 length = 0.001
 tracks/0/type = "value"
@@ -17,6 +21,70 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Rect2(0, 0, 32, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4.190951e-09, -6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5664992]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.1964453, 1.2389358)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:shape")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_q7ti0")]
+}
+
+[sub_resource type="Animation" id="Animation_jp3cw"]
+resource_name = "crouch"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("playerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(64, 0, 32, 32), Rect2(192, 0, 32, 32)]
 }
 
 [sub_resource type="Animation" id="Animation_w3t24"]
@@ -37,7 +105,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_38rej"]
 resource_name = "idle"
-length = 1.9000000000000001
+length = 1.9
 loop_mode = 1
 step = 0.25
 tracks/0/type = "value"
@@ -51,6 +119,54 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Rect2(0, 0, 32, 32), Rect2(32, 0, 32, 32), Rect2(64, 0, 32, 32), Rect2(32, 0, 32, 32), Rect2(0, 0, 32, 32), Rect2(0, 0, 32, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4.190951e-09, -6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5664992]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.1964453, 1.2389358)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:shape")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_q7ti0")]
 }
 
 [sub_resource type="Animation" id="Animation_23lac"]
@@ -107,7 +223,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_lerqx"]
 resource_name = "stick"
-length = 0.25
+length = 2.0
 step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -116,15 +232,16 @@ tracks/0/path = NodePath("playerAnimator/Sprite2D:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Rect2(224, 0, 32, 32)]
+"values": [Rect2(224, 0, 32, 32), Rect2(224, 0, 32, 32)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t1xgp"]
 _data = {
 &"RESET": SubResource("Animation_7dd06"),
+&"crouch": SubResource("Animation_jp3cw"),
 &"fall": SubResource("Animation_w3t24"),
 &"idle": SubResource("Animation_38rej"),
 &"jump": SubResource("Animation_23lac"),
@@ -133,18 +250,16 @@ _data = {
 &"stick": SubResource("Animation_lerqx")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q7ti0"]
-radius = 5.0822325
-height = 10.164465
+[sub_resource type="CircleShape2D" id="CircleShape2D_q7ti0"]
+radius = 23.959694
 
 [node name="Player" type="CharacterBody2D" unique_id=849985086]
+collision_layer = 7
 script = ExtResource("1_7dd06")
-jump_power = 13.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1248254296]
 scale = Vector2(1, 1.0078659)
-offset = Vector2(0, -15)
-zoom = Vector2(2, 2)
+offset = Vector2(0, -141.665)
 
 [node name="playerAnimator" type="Node2D" parent="." unique_id=2096058033 node_paths=PackedStringArray("player_controller", "animation_player", "sprite")]
 script = ExtResource("2_38rej")
@@ -166,8 +281,21 @@ region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=532160134]
-visible = false
 position = Vector2(4.190951e-09, -6)
 rotation = -1.5664992
 scale = Vector2(1.1964453, 1.2389358)
 shape = SubResource("CapsuleShape2D_q7ti0")
+
+[node name="player_hitbox" type="Area2D" parent="." unique_id=934587056]
+scale = Vector2(0.7539485, 0.7539485)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox" unique_id=737167051]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_q7ti0")
+
+[node name="attack_cooldown" type="Timer" parent="." unique_id=926723629]
+wait_time = 4.0
+
+[connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
+[connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
+[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

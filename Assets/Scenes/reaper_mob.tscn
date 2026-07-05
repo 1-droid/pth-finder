@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://cg2bx0b8t3hl5"]
+
+[ext_resource type="Script" uid="uid://drpy3pglsxqkv" path="res://Assets/Scripts/reaper_mob.gd" id="1_amyvv"]
+[ext_resource type="Texture2D" uid="uid://mbtah7l2bqvy" path="res://Assets/InteractableElements/Sprites/mobs.png" id="1_sgleg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amyvv"]
+atlas = ExtResource("1_sgleg")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lfre"]
+atlas = ExtResource("1_sgleg")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkfh3"]
+atlas = ExtResource("1_sgleg")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86icv"]
+atlas = ExtResource("1_sgleg")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q7ti0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amyvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lfre")
+}],
+"loop": 1,
+"name": &"attack",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkfh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86icv")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q7ti0"]
+radius = 34.43835
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q7ti0"]
+radius = 5.244821
+height = 17.785715
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2n25j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7ti0"]
+size = Vector2(55.61546, 13.133265)
+
+[node name="reaper_mob" type="CharacterBody2D" unique_id=876997418]
+scale = Vector2(1.2766235, 1.2766235)
+script = ExtResource("1_amyvv")
+speed = 33
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1739092222]
+position = Vector2(3, -30)
+scale = Vector2(6.1875, 6.1875)
+sprite_frames = SubResource("SpriteFrames_q7ti0")
+animation = &"walk"
+flip_h = true
+
+[node name="detection_area" type="Area2D" parent="." unique_id=1653916802]
+position = Vector2(0, -29)
+scale = Vector2(-2.4624002, -2.4624002)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area" unique_id=1994825404]
+scale = Vector2(1.7332354, 1.7332354)
+shape = SubResource("CircleShape2D_q7ti0")
+
+[node name="Collision_withobject" type="CollisionShape2D" parent="." unique_id=602661624]
+position = Vector2(3.9165814, -21.14954)
+scale = Vector2(2.389607, 4.323654)
+shape = SubResource("CapsuleShape2D_q7ti0")
+
+[node name="enemy_hitbox" type="Area2D" parent="." unique_id=315878907]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox" unique_id=921124225]
+position = Vector2(0, -24.282806)
+scale = Vector2(4.093783, 4.093783)
+shape = SubResource("CircleShape2D_2n25j")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=668976791]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1375526080]
+position = Vector2(5.8748717, 12.833163)
+shape = SubResource("RectangleShape2D_q7ti0")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

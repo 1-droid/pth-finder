@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cpbhwux0u1dgc"]
+
+[ext_resource type="AudioStream" uid="uid://d7ggw44o55in" path="res://Assets/Audio/HAte.mp3" id="1_dhtu4"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" unique_id=846666755]
+stream = ExtResource("1_dhtu4")
+autoplay = true

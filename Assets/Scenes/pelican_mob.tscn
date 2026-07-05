@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://ch0po2gmcbnl3"]
+
+[ext_resource type="Texture2D" uid="uid://mbtah7l2bqvy" path="res://Assets/InteractableElements/Sprites/mobs.png" id="1_70wgy"]
+[ext_resource type="Script" uid="uid://epmkscietlyq" path="res://Assets/Scripts/pelican_mob.gd" id="1_klhgi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klhgi"]
+atlas = ExtResource("1_70wgy")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qqtn"]
+atlas = ExtResource("1_70wgy")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37q2f"]
+atlas = ExtResource("1_70wgy")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdb3q"]
+atlas = ExtResource("1_70wgy")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne2vy"]
+atlas = ExtResource("1_70wgy")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruoh3"]
+atlas = ExtResource("1_70wgy")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q7ti0"]
+animations = [{
+"frames": [{
+"duration": 2.1,
+"texture": SubResource("AtlasTexture_klhgi")
+}, {
+"duration": 4.5,
+"texture": SubResource("AtlasTexture_7qqtn")
+}],
+"loop": 2,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37q2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdb3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne2vy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ruoh3")
+}],
+"loop": 1,
+"name": &"idle_move",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q7ti0"]
+radius = 47.94592
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uavt4"]
+radius = 2.9999878
+height = 7.999968
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uavt4"]
+
+[node name="pelican_mob" type="CharacterBody2D" unique_id=864535758]
+scale = Vector2(8.840001, 8.840001)
+script = ExtResource("1_klhgi")
+speed = 26
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=530499156]
+sprite_frames = SubResource("SpriteFrames_q7ti0")
+animation = &"idle_move"
+flip_h = true
+
+[node name="detection_area" type="Area2D" parent="." unique_id=1307808049]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area" unique_id=1335309095]
+scale = Vector2(1.5580426, 1.563679)
+shape = SubResource("CircleShape2D_q7ti0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2077449090]
+position = Vector2(-1.1312214, -1.9230766)
+rotation = -1.5736797
+shape = SubResource("CapsuleShape2D_uavt4")
+
+[node name="enemy_hitbox" type="Area2D" parent="." unique_id=899579249]
+position = Vector2(2.8280537, 1.3574659)
+scale = Vector2(0.54854816, 0.4874612)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox" unique_id=1154011764]
+scale = Vector2(0.62134564, 0.62134564)
+shape = SubResource("CircleShape2D_uavt4")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
